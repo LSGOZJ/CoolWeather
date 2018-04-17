@@ -1,5 +1,6 @@
 package com.example.zhongjin.coolweacher;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.zhongjin.coolweacher.gson.Forecast;
 import com.example.zhongjin.coolweacher.gson.Weather;
+import com.example.zhongjin.coolweacher.service.AutoUpdateService;
 import com.example.zhongjin.coolweacher.util.HttpUtil;
 import com.example.zhongjin.coolweacher.util.Utility;
 
@@ -218,6 +220,8 @@ public class WeatherActivity extends AppCompatActivity {
         sportText.setText(sport);
         carWashText.setText(carwash);
         weatherLayout.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(WeatherActivity.this, AutoUpdateService.class);
+        startService(intent);
     }
 
     /**
